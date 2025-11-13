@@ -60,14 +60,14 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:info@NexPage.at" className="hover:text-primary transition-colors">
-                  info@NexPage.at
+                <a href="mailto:info@nexpage.at" className="hover:text-primary transition-colors">
+                  info@nexpage.at
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+4312345678" className="hover:text-primary transition-colors">
-                  +43 1 234 5678
+                <a href="tel:+436604690880" className="hover:text-primary transition-colors">
+                  +43 660 469 0880
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} NexPage.at. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} NexPage. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

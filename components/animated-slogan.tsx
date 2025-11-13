@@ -22,19 +22,21 @@ export function AnimatedSlogan() {
   }, [])
 
   return (
-    <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl text-balance">
+    <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl text-balance mb-2">
       <span className="text-foreground">
-        Webdesign, das
-        <br />
-        {" "}
-      </span>
-      <span
-        className={`bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent animate-gradient transition-opacity duration-500 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {words[currentIndex]}
-      </span>
+  Webdesign, das
+</span>
+
+<div className="mt-3">
+  <span
+    className={`bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent animate-gradient transition-opacity duration-500 ${
+      isVisible ? "opacity-100" : "opacity-0"
+    }`}
+  >
+    {words[currentIndex]}
+  </span>
+</div>
+
     </h1>
   )
 }

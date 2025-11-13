@@ -12,7 +12,7 @@ export default function PricingPageClient() {
   const packages = [
     {
       name: "Basis",
-      price: "€ 1.499",
+      price: "ab € 799",
       description: "Perfekt für kleine Unternehmen und Einsteiger",
       packageId: "basis",
       features: [
@@ -21,51 +21,47 @@ export default function PricingPageClient() {
         "Responsive Design",
         "Kontaktformular",
         "SSL-Verschlüsselung",
-        "DSGVO-konform",
-        "3 Monate Support",
+        "SEO optimiert",
+        "1 Monat Support",
       ],
       highlighted: false,
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       name: "Standard",
-      price: "€ 3.499",
+      price: "ab € 1.199",
       description: "Ideal für etablierte Unternehmen",
       packageId: "standard",
       features: [
-        "5-7 Seiten",
+        "5+ Seiten",
         "Individuelles Design",
         "WordPress oder Hardcode",
         "SEO-Grundoptimierung",
         "Kontaktformular mit Validierung",
         "Cookie-Banner",
         "SSL-Verschlüsselung",
-        "DSGVO-konform",
-        "6 Monate Support",
+        "SEO optimiert",
+        "2 Monate Support",
         "Content-Einbindung",
       ],
       highlighted: true,
       gradient: "from-cyan-500 to-teal-400",
     },
     {
-      name: "Premium",
-      price: "€ 6.999",
-      description: "Für anspruchsvolle Projekte",
+      name: "E-Commerce",
+      price: "ab € 1.199",
+      description: "Für Online-Shops und komplexe Projekte",
       packageId: "premium",
       features: [
-        "10+ Seiten",
-        "Vollständig individuelles Design",
-        "Hardcode oder WordPress",
-        "Erweiterte Funktionen",
-        "Umfassende SEO-Optimierung",
-        "E-Commerce Integration (optional)",
-        "Performance-Optimierung",
-        "Cookie-Banner",
-        "SSL-Verschlüsselung",
-        "DSGVO-konform",
-        "12 Monate Support",
-        "Content-Erstellung",
-        "Schulung & Dokumentation",
+        "Vollständig individuelles Shop-Design",
+        "WooCommerce/Shopify/Stripe",
+        "Erweiterte Shop-Funktionen",
+        "Umfassende SEO-Optimierung für Produkte",
+        "Zahlungs- und Versandintegration",
+        "Performance-Optimierung für schnelle Ladezeiten",
+        "Cookie-Banner für Shop & Tracking",
+        "SSL-Verschlüsselung für sicheren Checkout",
+        "2 Monate Support",
       ],
       highlighted: false,
       gradient: "from-teal-400 to-emerald-500",
@@ -130,7 +126,7 @@ export default function PricingPageClient() {
                       <span className="text-muted-foreground"> einmalig</span>
                     </div>
                   </CardHeader>
-                  <CardContent className="relative">
+                  <CardContent className="relative flex-1">
                     <ul className="space-y-3">
                       {pkg.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
@@ -144,7 +140,7 @@ export default function PricingPageClient() {
                       ))}
                     </ul>
                   </CardContent>
-                  <CardFooter className="relative">
+                  <CardFooter className="relative mt-auto">
                     <Link href={`/kontakt?package=${pkg.packageId}`} className="w-full">
                       <Button
                         className={`w-full transition-all hover:scale-105 ${
@@ -163,7 +159,7 @@ export default function PricingPageClient() {
             </div>
 
             <div className="mt-16 text-center">
-              <Card className="relative mx-auto max-w-3xl overflow-hidden border-2">
+              <Card className="relative mx-auto max-w-3xl overflow-hidden border-2 flex flex-col">
                 <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" />
                 <CardHeader className="relative">
                   <CardTitle className="text-2xl">
@@ -176,7 +172,7 @@ export default function PricingPageClient() {
                     genau auf Ihre Anforderungen zugeschnitten ist.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="relative">
+                <CardContent className="relative flex-1">
                   <Link href="/kontakt?package=individuell">
                     <Button
                       size="lg"
@@ -204,11 +200,11 @@ export default function PricingPageClient() {
               {[
                 {
                   q: "Was ist in den Paketen enthalten?",
-                  a: "Alle Pakete beinhalten professionelles Design, responsive Entwicklung, SSL-Verschlüsselung, DSGVO-Konformität und Support. Die genauen Leistungen finden Sie in der Paketbeschreibung.",
+                  a: "Alle Pakete beinhalten professionelles Design, responsive Entwicklung, SSL-Verschlüsselung und Support. Die genauen Leistungen finden Sie in der Paketbeschreibung.",
                 },
                 {
                   q: "Wie lange dauert die Umsetzung?",
-                  a: "Die Dauer hängt vom gewählten Paket ab. Basis-Pakete werden in der Regel innerhalb von 2-3 Wochen fertiggestellt, Standard-Pakete in 4-6 Wochen und Premium-Projekte in 6-10 Wochen.",
+                  a: "Die Dauer hängt vom gewählten Paket ab. Basis-Pakete werden in der Regel innerhalb von 2-3 Wochen fertiggestellt, Standard-Pakete in 4-6 Wochen und E-Commerce-Projekte in 6-10 Wochen.",
                 },
                 {
                   q: "Können Pakete angepasst werden?",

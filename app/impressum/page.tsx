@@ -4,7 +4,7 @@ import { CookieBanner } from "@/components/cookie-banner"
 
 export const metadata = {
   title: "Impressum - NexPage.at",
-  description: "Impressum und rechtliche Informationen von NexPage.at",
+  description: "Impressum und rechtliche Hinweise von NexPage.at",
 }
 
 export default function ImpressumPage() {
@@ -18,110 +18,81 @@ export default function ImpressumPage() {
 
             <div className="mt-12 space-y-8 text-muted-foreground">
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
-                <div className="mt-4 space-y-1">
-                  <p>NexPage.at</p>
-                  <p>Musterstraße 123</p>
-                  <p>1010 Wien</p>
-                  <p>Österreich</p>
-                </div>
+                <h2 className="text-xl font-semibold text-foreground">Angaben gemäß § 5 TMG und § 55 RStV</h2><br></br>
+                <h2 className="text-xl font-semibold text-foreground">Betreiber</h2>
+                <p>NexPage.at</p>
+                <p>Einzelunternehmen</p>
+                <p>Ksawery Zajac</p>
+                <p>Österreich</p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Kontakt</h2>
-                <div className="mt-4 space-y-1">
-                  <p>Telefon: +43 1 234 5678</p>
-                  <p>E-Mail: info@NexPage.at</p>
-                </div>
+                <p>E-Mail: info@nexpage.at</p>
+                <p>Telefon: +43 660 469 0880</p>
+                <p>Website: nexpage.at</p>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-foreground">Vertretungsberechtigte Geschäftsführung</h2>
-                <p className="mt-4">Max Mustermann</p>
-              </div>
-
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">Umsatzsteuer-ID</h2>
-                <p className="mt-4">
-                  Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
-                  <br />
-                  ATU12345678
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">Berufsbezeichnung</h2>
-                <p className="mt-4">
-                  Webdesign und Webentwicklung
-                  <br />
-                  Verliehen in: Österreich
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">EU-Streitschlichtung</h2>
-                <p className="mt-4 leading-relaxed">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-                  <a
-                    href="https://ec.europa.eu/consumers/odr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline hover:no-underline"
-                  >
-                    https://ec.europa.eu/consumers/odr
-                  </a>
-                  .
-                  <br />
-                  Unsere E-Mail-Adresse finden Sie oben im Impressum.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-xl font-semibold text-foreground">
-                  Verbraucherstreitbeilegung/Universalschlichtungsstelle
-                </h2>
-                <p className="mt-4 leading-relaxed">
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                  Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
+                <h2 className="text-xl font-semibold text-foreground">Gewerbewortlaut</h2>
+                <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Haftung für Inhalte</h2>
-                <p className="mt-4 leading-relaxed">
-                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
-                  allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-                  verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
-                  forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                <p>
+                  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
                 </p>
-                <p className="mt-4 leading-relaxed">
-                  Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen
-                  Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
-                  Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
-                  Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+                <p>
+                  Nach §§ 8 bis 10 TMG sind wir nicht verpflichtet, fremde übermittelte oder gespeicherte Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                </p>
+                <p>
+                  Trotz sorgfältiger Prüfung übernehmen wir keine Gewähr für Vollständigkeit, Richtigkeit oder Aktualität fremder Inhalte. Sobald uns Rechtsverletzungen bekannt werden, entfernen wir diese unverzüglich.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Haftung für Links</h2>
-                <p className="mt-4 leading-relaxed">
-                  Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
-                  Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
-                  verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die
-                  verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
-                  Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+                <p>
+                  Unsere Website kann Links zu externen Websites Dritter enthalten. Wir haben keinen Einfluss auf deren Inhalte und übernehmen dafür keine Haftung.
+                </p>
+                <p>
+                  Für die Inhalte der verlinkten Seiten sind ausschließlich die jeweiligen Betreiber verantwortlich.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Urheberrecht</h2>
-                <p className="mt-4 leading-relaxed">
-                  Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
-                  österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
-                  Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des
-                  jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht
-                  kommerziellen Gebrauch gestattet.
+                <p>
+                  Alle Inhalte dieser Website, einschließlich Texte, Bilder, Grafiken und Videos, unterliegen dem Urheberrecht. 
+                  Eine Nutzung außerhalb des privaten, nicht-kommerziellen Gebrauchs ist nur mit ausdrücklicher schriftlicher Zustimmung des Rechteinhabers erlaubt.
                 </p>
+                <p>Unautorisierte Nutzung kann rechtliche Konsequenzen nach sich ziehen.</p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-foreground">Online-Streitbeilegung</h2>
+                <p>
+                  Informationen zu anerkannten Streitbeilegungsstellen in der EU finden Sie hier:
+                </p>
+                <p>
+                  <a
+                    href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline hover:no-underline"
+                  >
+                    https://consumer-redress.ec.europa.eu/dispute-resolution-bodies
+                  </a>
+                </p>
+                <p>
+                  Wir sind derzeit nicht bereit und verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                </p>
+              </div>
+
+
+              <div className="text-sm mt-6">
+                <p>Stand: {new Date().toLocaleDateString("de-AT")}</p>
               </div>
             </div>
           </div>
