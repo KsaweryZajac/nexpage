@@ -16,7 +16,7 @@ export default function PricingPageClient() {
       description: "Perfekt für kleine Unternehmen und Einsteiger",
       packageId: "basis",
       features: [
-        "1-3 Seiten",
+        "1-4 Seiten",
         "WordPress Grundlayout",
         "Responsive Design",
         "Kontaktformular",
