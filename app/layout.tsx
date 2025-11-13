@@ -7,9 +7,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NextPage.at - Professionelles Webdesign & Webentwicklung in Österreich",
+  title: "NexPage.at - Professionelles Webdesign & Webentwicklung in Österreich",
   description:
-    "NextPage.at bietet professionelles Webdesign und Webentwicklung in Österreich. WordPress und maßgeschneiderte Lösungen für Ihr Unternehmen.",
+    "NexPage.at bietet professionelles Webdesign und Webentwicklung in Österreich. WordPress und maßgeschneiderte Lösungen für Ihr Unternehmen.",
   generator: "v0.app",
   keywords: "Webdesign, Webentwicklung, WordPress, Österreich, Website erstellen, Webdesign Agentur",
   icons: {

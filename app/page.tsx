@@ -211,7 +211,7 @@ export default function HomePage() {
                 <div className="relative aspect-square overflow-hidden rounded-2xl bg-muted shadow-2xl">
                   <img
                     src="/modern-web-design-team-collaboration.jpg"
-                    alt="NextPage.at Team"
+                    alt="NexPage.at Team"
                     className="h-full w-full object-cover hover:scale-110 transition-transform duration-700"
                   />
                 </div>

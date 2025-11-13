@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer"
 import { CookieBanner } from "@/components/cookie-banner"
 
 export const metadata = {
-  title: "Impressum - NextPage.at",
-  description: "Impressum und rechtliche Informationen von NextPage.at",
+  title: "Impressum - NexPage.at",
+  description: "Impressum und rechtliche Informationen von NexPage.at",
 }
 
 export default function ImpressumPage() {
@@ -20,7 +20,7 @@ export default function ImpressumPage() {
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
                 <div className="mt-4 space-y-1">
-                  <p>NextPage.at</p>
+                  <p>NexPage.at</p>
                   <p>Musterstraße 123</p>
                   <p>1010 Wien</p>
                   <p>Österreich</p>
@@ -31,7 +31,7 @@ export default function ImpressumPage() {
                 <h2 className="text-xl font-semibold text-foreground">Kontakt</h2>
                 <div className="mt-4 space-y-1">
                   <p>Telefon: +43 1 234 5678</p>
-                  <p>E-Mail: info@nextpage.at</p>
+                  <p>E-Mail: info@NexPage.at</p>
                 </div>
               </div>
 

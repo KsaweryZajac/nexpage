@@ -3,7 +3,7 @@ import { Suspense } from "react"
 import ContactPageContent from "./contact-page-content"
 
 export const metadata: Metadata = {
-  title: "Kontakt | NextPage.at",
+  title: "Kontakt | NexPage.at",
   description: "Kontaktieren Sie uns für Ihr Webprojekt",
 }
 

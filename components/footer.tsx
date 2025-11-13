@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-bold text-primary">NextPage.at</h3>
+            <h3 className="text-lg font-bold text-primary">NexPage.at</h3>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Ihr Partner für professionelles Webdesign und Webentwicklung in Österreich.
             </p>
@@ -60,8 +60,8 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:info@nextpage.at" className="hover:text-primary transition-colors">
-                  info@nextpage.at
+                <a href="mailto:info@NexPage.at" className="hover:text-primary transition-colors">
+                  info@NexPage.at
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} NextPage.at. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} NexPage.at. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer"
 import { CookieBanner } from "@/components/cookie-banner"
 
 export const metadata = {
-  title: "Datenschutzerklärung - NextPage.at",
-  description: "Datenschutzerklärung und DSGVO-Informationen von NextPage.at",
+  title: "Datenschutzerklärung - NexPage.at",
+  description: "Datenschutzerklärung und DSGVO-Informationen von NexPage.at",
 }
 
 export default function DatenschutzPage() {

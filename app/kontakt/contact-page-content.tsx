@@ -248,10 +248,10 @@ export default function ContactPageContent() {
                   </CardHeader>
                   <CardContent>
                     <a
-                      href="mailto:info@nextpage.at"
+                      href="mailto:info@NexPage.at"
                       className="text-muted-foreground hover:text-primary transition-colors font-medium"
                     >
-                      info@nextpage.at
+                      info@NexPage.at
                     </a>
                   </CardContent>
                 </Card>
@@ -283,7 +283,7 @@ export default function ContactPageContent() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      NextPage.at
+                      NexPage.at
                       <br />
                       Musterstraße 123
                       <br />

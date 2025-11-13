@@ -5,9 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Target, Award, Lightbulb } from "lucide-react"
 
 export const metadata = {
-  title: "Über uns - NextPage.at",
+  title: "Über uns - NexPage.at",
   description:
-    "Lernen Sie das Team von NextPage.at kennen. Erfahrung, Expertise und Leidenschaft für professionelles Webdesign.",
+    "Lernen Sie das Team von NexPage.at kennen. Erfahrung, Expertise und Leidenschaft für professionelles Webdesign.",
 }
 
 export default function AboutPage() {
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <div className="relative mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-balance">
               <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-                Über NextPage.at
+                Über NexPage.at
               </span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold tracking-tight text-foreground text-balance">Unsere Geschichte</h2>
                 <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
                   <p>
-                    NextPage.at wurde mit der Vision gegründet, österreichischen Unternehmen den Zugang zu
+                    NexPage.at wurde mit der Vision gegründet, österreichischen Unternehmen den Zugang zu
                     professionellem Webdesign und moderner Webentwicklung zu ermöglichen. Was als kleines Team begann,
                     ist heute ein etablierter Partner für digitale Projekte aller Größenordnungen.
                   </p>
@@ -141,7 +141,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-balance">Unser Ansatz</h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
               <p>
-                Bei NextPage.at beginnen wir jedes Projekt mit einem ausführlichen Beratungsgespräch. Wir möchten Ihr
+                Bei NexPage.at beginnen wir jedes Projekt mit einem ausführlichen Beratungsgespräch. Wir möchten Ihr
                 Unternehmen, Ihre Ziele und Ihre Zielgruppe verstehen, bevor wir mit der Planung beginnen.
               </p>
               <p>

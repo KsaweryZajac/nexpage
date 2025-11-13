@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Palette, Code, Smartphone, Search, ShoppingCart, Database, Lock, Gauge, ArrowRight } from "lucide-react"
 
 export const metadata = {
-  title: "Leistungen - NextPage.at",
+  title: "Leistungen - NexPage.at",
   description: "Unsere Webdesign und Webentwicklung Services: WordPress, Hardcode, E-Commerce, SEO und mehr.",
 }
 

@@ -8,7 +8,7 @@ import { ExternalLink, Quote } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Referenzen - NextPage.at",
+  title: "Referenzen - NexPage.at",
   description: "Unsere erfolgreich umgesetzten Webdesign und Webentwicklung Projekte.",
 }
 
@@ -183,7 +183,7 @@ export default function ReferencesPage() {
             <div className="space-y-6">
               {[
                 {
-                  text: "Die Zusammenarbeit mit NextPage.at war hervorragend. Von der ersten Beratung bis zum Launch wurde alles professionell und termingerecht umgesetzt. Unsere neue Website übertrifft unsere Erwartungen!",
+                  text: "Die Zusammenarbeit mit NexPage.at war hervorragend. Von der ersten Beratung bis zum Launch wurde alles professionell und termingerecht umgesetzt. Unsere neue Website übertrifft unsere Erwartungen!",
                   name: "Dr. Maria Weber",
                   role: "Rechtsanwaltskanzlei Weber, Wien",
                 },

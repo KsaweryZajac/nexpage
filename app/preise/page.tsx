@@ -1,7 +1,7 @@
 import PricingPageClient from "./pricing-client"
 
 export const metadata = {
-  title: "Preise - NextPage.at",
+  title: "Preise - NexPage.at",
   description: "Transparente Preise für Webdesign und Webentwicklung. Basis, Standard und Premium Pakete.",
 }
 
