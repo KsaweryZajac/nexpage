@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Slider } from "@/components/ui/slider"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { useSearchParams } from "next/navigation"
@@ -27,14 +28,19 @@ export default function ContactPageContent() {
     phone: "",
     company: "",
     package: "",
+    addons: [] as string[],
+    budgetRange: [500, 10000],
+    budgetUnclear: false,
     message: "",
     privacy: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     if (hasInitialized.current) return
 
+    setIsMounted(true)
     const packageParam = searchParams.get("package")
     console.log("[v0] Package parameter from URL:", packageParam)
     if (packageParam) {
@@ -65,6 +71,49 @@ export default function ContactPageContent() {
     setFormData({
       ...formData,
       package: value,
+    })
+  }
+
+  const handleAddonChange = (value: string) => {
+    setFormData((prev) => {
+      const isChecked = prev.addons.includes(value)
+      return {
+        ...prev,
+        addons: isChecked
+          ? prev.addons.filter(addon => addon !== value)
+          : [...prev.addons, value],
+      }
+    })
+  }
+
+  const getAddonsLabel = () => {
+    if (formData.addons.length === 0) {
+      return "Keine"
+    }
+    if (formData.addons.length === 4) {
+      return "Alle Zusatzpakete"
+    }
+    const labels: { [key: string]: string } = {
+      support: "Support & Wartung",
+      domain: "Domain & Hosting",
+      migration: "Content Migration",
+      notfall: "Notfall-Support",
+    }
+    return formData.addons.map(addon => labels[addon] || addon).join(" + ")
+  }
+
+  const handleBudgetRangeChange = (value: number[]) => {
+    setFormData({
+      ...formData,
+      budgetRange: value,
+      budgetUnclear: false,
+    })
+  }
+
+  const handleBudgetUnclearChange = () => {
+    setFormData({
+      ...formData,
+      budgetUnclear: !formData.budgetUnclear,
     })
   }
 
@@ -167,12 +216,94 @@ export default function ContactPageContent() {
                         <SelectValue placeholder="Wählen Sie ein Paket (optional)" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="basis">Basis - € 1.499</SelectItem>
-                        <SelectItem value="standard">Standard - € 3.499</SelectItem>
-                        <SelectItem value="premium">Premium - € 6.999</SelectItem>
+                        <SelectItem value="basis">Basis - ab € 799</SelectItem>
+                        <SelectItem value="standard">Standard - ab € 1.199</SelectItem>
+                        <SelectItem value="premium">E-Commerce - ab € 1.199</SelectItem>
                         <SelectItem value="individuell">Individuelles Angebot</SelectItem>
                       </SelectContent>
                     </Select>
+                  </div>
+                  <div>
+                    <Label className="mb-3 block">Zusatzpakete (optional)</Label>
+                    <div className="rounded-lg border-2 border-muted p-4">
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="flex items-center gap-3">
+                          <Checkbox
+                            id="support"
+                            checked={formData.addons.includes("support")}
+                            onCheckedChange={() => handleAddonChange("support")}
+                          />
+                          <Label htmlFor="support" className="text-xs font-normal cursor-pointer flex-1">
+                            Support & Wartung (ab 40€/Monat)
+                          </Label>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Checkbox
+                            id="domain"
+                            checked={formData.addons.includes("domain")}
+                            onCheckedChange={() => handleAddonChange("domain")}
+                          />
+                          <Label htmlFor="domain" className="text-xs font-normal cursor-pointer flex-1">
+                            Domain & Hosting (ab 20€/Monat)
+                          </Label>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Checkbox
+                            id="migration"
+                            checked={formData.addons.includes("migration")}
+                            onCheckedChange={() => handleAddonChange("migration")}
+                          />
+                          <Label htmlFor="migration" className="text-xs font-normal cursor-pointer flex-1">
+                            Content Migration (ab 149€)
+                          </Label>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Checkbox
+                            id="notfall"
+                            checked={formData.addons.includes("notfall")}
+                            onCheckedChange={() => handleAddonChange("notfall")}
+                          />
+                          <Label htmlFor="notfall" className="text-xs font-normal cursor-pointer flex-1">
+                            Notfall-Support (ab 70€/Stunde)
+                          </Label>
+                        </div>
+                      </div>
+                      <div className="pt-3 border-t border-muted">
+                        <p className="text-xs font-medium text-foreground">
+                          Ausgewählt: {getAddonsLabel()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-end gap-3">
+                      <div className="flex-1">
+                        <Label htmlFor="budget" className={formData.budgetUnclear ? "text-muted-foreground" : ""}>Budget-Spanne: {isMounted ? `€${formData.budgetRange[0].toLocaleString()} - ${formData.budgetRange[1] > 50000 ? "€50.000+" : `€${formData.budgetRange[1].toLocaleString()}`}` : "€500 - €10.000"}</Label>
+                        <div className={`mt-4 px-2 ${formData.budgetUnclear ? "opacity-50 pointer-events-none" : ""}`}>
+                          <Slider
+                            value={formData.budgetRange}
+                            onValueChange={handleBudgetRangeChange}
+                            min={0}
+                            max={50000.0001}
+                            step={500}
+                            className="w-full"
+                            disabled={formData.budgetUnclear}
+                          />
+                        </div>
+                        <div className="mt-3 flex justify-between text-xs text-muted-foreground">
+                          <span>€0</span>
+                          <span>€50.000+</span>
+                        </div>
+                      </div>
+                      <Button
+                        type="button"
+                        variant={formData.budgetUnclear ? "default" : "outline"}
+                        onClick={handleBudgetUnclearChange}
+                        className={`h-10 ${formData.budgetUnclear ? "bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary" : ""}`}
+                      >
+                        Unklar
+                      </Button>
+                    </div>
                   </div>
                   <div>
                     <Label htmlFor="message">Nachricht *</Label>
@@ -186,32 +317,28 @@ export default function ContactPageContent() {
                       placeholder="Erzählen Sie uns von Ihrem Projekt..."
                     />
                   </div>
-        <div className="items-start gap-3 rounded-lg border-2 border-muted p-4 bg-muted/20">
-  <Checkbox
-    id="privacy"
-    checked={formData.privacy}
-    onCheckedChange={handlePrivacyChange}
-    required
-    className="mt-0.5 flex-shrink-0"
-  />
-  <Label htmlFor="privacy" className="text-sm leading-relaxed cursor-pointer font-normal">
-    Ich bestätige, dass meine Angaben korrekt sind und stimme der Verarbeitung meiner Daten gemäß der{" "}
-    <Link
-      href="/datenschutz"
-      target="_blank"
-      style={{
-        color: "#3b82f6", // Tailwind: text-blue-500
-        textDecoration: "underline",
-        textUnderlineOffset: "2px",
-        display: "inline",
-        verticalAlign: "baseline",
-      }}
-    >
-      Datenschutzerklärung
-    </Link>{" "}
-    zu *
-  </Label>
-</div>
+                  <div className="flex items-start gap-2 rounded-lg border-2 border-muted p-4 bg-muted/20">
+                    <Checkbox
+                      id="privacy"
+                      checked={formData.privacy}
+                      onCheckedChange={handlePrivacyChange}
+                      required
+                      className="mt-1 flex-shrink-0"
+                    />
+                    <span className="text-xs leading-relaxed font-normal flex-1">
+                      <label htmlFor="privacy" className="cursor-pointer">
+                        Ich bestätige, dass meine Angaben korrekt sind und stimme der Verarbeitung meiner Daten gemäß der{" "}
+                        <Link
+                          href="/datenschutz"
+                          target="_blank"
+                          className="text-blue-500 hover:text-blue-600 underline underline-offset-2 transition-colors"
+                        >
+                          Datenschutzerklärung
+                        </Link>
+                        {" "}zu *
+                      </label>
+                    </span>
+                  </div>
 
 
 
@@ -265,10 +392,10 @@ export default function ContactPageContent() {
                   </CardHeader>
                   <CardContent>
                     <a
-                      href="tel:+4312345678"
+                      href="tel:+436604690880"
                       className="text-muted-foreground hover:text-primary transition-colors font-medium"
                     >
-                      +43 1 234 5678
+                      +43 660 469 0880
                     </a>
                     <p className="mt-2 text-sm text-muted-foreground">Mo-Fr: 9:00 - 17:00 Uhr</p>
                   </CardContent>
@@ -285,9 +412,7 @@ export default function ContactPageContent() {
                     <p className="text-muted-foreground">
                       NexPage.at
                       <br />
-                      Musterstraße 123
-                      <br />
-                      1010 Wien
+                      Wien
                       <br />
                       Österreich
                     </p>

@@ -50,7 +50,7 @@ export default function PricingPageClient() {
     {
       name: "E-Commerce",
       price: "ab € 1.199",
-      description: "Für Online-Shops und komplexe Projekte",
+      description: "Für Online-Shops",
       packageId: "premium",
       features: [
         "Vollständig individuelles Shop-Design",
@@ -183,6 +183,67 @@ export default function PricingPageClient() {
                   </Link>
                 </CardContent>
               </Card>
+            </div>
+
+            <div className="mt-24">
+              <h2 className="text-3xl font-bold tracking-tight text-center text-balance mb-12">
+                <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
+                  Zusatzpakete
+                </span>
+              </h2>
+              <div className="grid gap-8 lg:grid-cols-4">
+                {[
+                  {
+                    name: "Support & Wartung",
+                    price: "ab 40€/Monat",
+                    gradient: "from-blue-500 to-cyan-500",
+                  },
+                  {
+                    name: "Domain & Hosting Setup",
+                    price: "ab 20€/Monat",
+                    gradient: "from-cyan-500 to-teal-400",
+                  },
+                  {
+                    name: "Content Migration",
+                    price: "ab 149€",
+                    gradient: "from-teal-400 to-emerald-500",
+                  },
+                  {
+                    name: "Notfall-Support",
+                    price: "ab 70€/Stunde",
+                    gradient: "from-emerald-500 to-green-500",
+                  },
+                ].map((addon, index) => (
+                  <Card
+                    key={addon.name}
+                    className="group relative overflow-hidden border-2 transition-all hover:shadow-2xl hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                    style={{ animationDelay: `${index * 150}ms` }}
+                  >
+                    <CardHeader className="relative">
+                      <CardTitle className="text-lg">{addon.name}</CardTitle>
+                      <div className="mt-4">
+                        <span className={`text-2xl font-bold bg-gradient-to-r ${addon.gradient} bg-clip-text text-transparent`}>
+                          {addon.price}
+                        </span>
+                      </div>
+                    </CardHeader>
+                    <CardFooter className="relative mt-auto">
+                      <Link href="/kontakt" className="w-full">
+                        <Button
+                          className="w-full transition-all hover:scale-105 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary"
+                          variant="default"
+                        >
+                          Anfragen
+                        </Button>
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+              <p className="mt-8 text-center text-sm text-muted-foreground font-light pt-10">
+                Die Preise der Zusatzpakete werden basierend auf dem genauen Umfang und der benötigten Leistung kalkuliert. 
+                Individuelle Anforderungen können zu abweichenden Preisen führen. Für eine genaue Kostenschätzung kontaktieren Sie uns.
+              </p>
             </div>
           </div>
         </section>
