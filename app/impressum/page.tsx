@@ -29,7 +29,7 @@ export default function ImpressumPage() {
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Kontakt</h2>
                 <p>E-Mail: info@nexpage.at</p>
-                <p>Telefon: +43 660 469 0880</p>
+                <p>Telefon: +43 660</p>
                 <p>Website: nexpage.at</p>
               </div>
 
