@@ -392,10 +392,10 @@ export default function ContactPageContent() {
                   </CardHeader>
                   <CardContent>
                     <a
-                      href="tel:+436604690880"
+                      href="tel:+43660"
                       className="text-muted-foreground hover:text-primary transition-colors font-medium"
                     >
-                      +43 660 469 0880
+                      +43 660
                     </a>
                     <p className="mt-2 text-sm text-muted-foreground">Mo-Fr: 9:00 - 17:00 Uhr</p>
                   </CardContent>
