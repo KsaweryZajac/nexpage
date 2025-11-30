@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { CookieBanner } from "@/components/cookie-banner"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Sparkles } from "lucide-react"
+import { Check, Sparkles, Rocket } from "lucide-react"
 import Link from "next/link"
 
 export default function PricingPageClient() {
@@ -25,7 +25,6 @@ export default function PricingPageClient() {
         "1 Monat Support",
       ],
       highlighted: false,
-      gradient: "from-blue-500 to-cyan-500",
     },
     {
       name: "Standard",
@@ -45,7 +44,6 @@ export default function PricingPageClient() {
         "Content-Einbindung",
       ],
       highlighted: true,
-      gradient: "from-cyan-500 to-teal-400",
     },
     {
       name: "E-Commerce",
@@ -64,7 +62,6 @@ export default function PricingPageClient() {
         "2 Monate Support",
       ],
       highlighted: false,
-      gradient: "from-teal-400 to-emerald-500",
     },
   ]
 
@@ -72,70 +69,59 @@ export default function PricingPageClient() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient" />
+        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-8 bg-white">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-24 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
+            <div className="absolute -top-24 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl animate-float" />
             <div
-              className="absolute -bottom-24 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
+              className="absolute -bottom-24 right-1/4 w-96 h-96 bg-purple-50 rounded-full blur-3xl animate-float"
               style={{ animationDelay: "1.5s" }}
             />
           </div>
           <div className="relative mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-balance">
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-                Transparente Preise
-              </span>
+              <span style={{ color: 'lab(37 -0.11 -6.13)' }}>Transparente Preise</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
-              Wählen Sie das Paket, das am besten zu Ihren Anforderungen passt. Alle Preise sind Fixpreise ohne
-              versteckte Kosten.
+            <p className="mt-4 text-lg leading-relaxed text-gray-600 text-pretty">
+              Wählen Sie das Paket, das am besten zu Ihren Anforderungen passt. Alle Preise sind Fixpreise ohne versteckte Kosten.
             </p>
           </div>
         </section>
 
-        <section className="px-6 py-24 lg:px-8">
+        <section className="px-6 py-24 lg:px-8 bg-white">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-3">
               {packages.map((pkg, index) => (
                 <Card
                   key={pkg.name}
-                  className={`group relative overflow-hidden border-2 transition-all hover:shadow-2xl hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 ${
-                    pkg.highlighted ? "border-primary shadow-xl scale-105" : ""
+                  className={`group relative overflow-visible transition-all hover:shadow-xl hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 ${
+                    pkg.highlighted ? "border-2 border-blue-300 shadow-lg" : "border border-gray-200"
                   }`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  {pkg.highlighted && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5" />
-                  )}
+                  <div className="absolute -top-3 -right-3 z-10">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-700">
+                      <Rocket className="h-3 w-3" />
+                      <span className="text-xs">{pkg.price}</span>
+                    </div>
+                  </div>
                   <CardHeader className="relative">
                     {pkg.highlighted && (
-                      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-3 py-1 text-xs font-semibold text-white animate-pulse-glow">
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                         <Sparkles className="h-3 w-3" />
-                        Beliebtestes Paket
+                        Beliebteste Wahl
                       </div>
                     )}
-                    <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-                    <CardDescription className="mt-2">{pkg.description}</CardDescription>
-                    <div className="mt-6">
-                      <span
-                        className={`text-4xl font-bold bg-gradient-to-r ${pkg.gradient} bg-clip-text text-transparent`}
-                      >
-                        {pkg.price}
-                      </span>
-                      <span className="text-muted-foreground"> einmalig</span>
-                    </div>
+                    <CardTitle className="text-2xl text-gray-900">{pkg.name}</CardTitle>
+                    <CardDescription className="mt-2 text-gray-600">{pkg.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="relative flex-1">
                     <ul className="space-y-3">
                       {pkg.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <div
-                            className={`mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${pkg.gradient}`}
-                          >
-                            <Check className="h-3 w-3 text-white" />
+                          <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
+                            <Check className="h-3 w-3 text-blue-600" />
                           </div>
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <span className="text-sm text-gray-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -145,8 +131,8 @@ export default function PricingPageClient() {
                       <Button
                         className={`w-full transition-all hover:scale-105 ${
                           pkg.highlighted
-                            ? "bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary"
-                            : ""
+                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
+                            : "border border-gray-300 text-gray-900 hover:bg-gray-50"
                         }`}
                         variant={pkg.highlighted ? "default" : "outline"}
                       >
@@ -159,24 +145,22 @@ export default function PricingPageClient() {
             </div>
 
             <div className="mt-16 text-center">
-              <Card className="relative mx-auto max-w-3xl overflow-hidden border-2 flex flex-col">
-                <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" />
+              <Card className="relative mx-auto max-w-3xl overflow-hidden border border-gray-200 flex flex-col bg-gradient-to-br from-white to-blue-50">
                 <CardHeader className="relative">
                   <CardTitle className="text-2xl">
-                    <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
+                    <span style={{ color: 'lab(37 -0.11 -6.13)' }}>
                       Individuelles Angebot
                     </span>
                   </CardTitle>
-                  <CardDescription className="mt-2 text-base">
-                    Benötigen Sie eine maßgeschneiderte Lösung? Wir erstellen Ihnen gerne ein individuelles Angebot, das
-                    genau auf Ihre Anforderungen zugeschnitten ist.
+                  <CardDescription className="mt-2 text-base text-gray-600">
+                    Benötigen Sie eine maßgeschneiderte Lösung? Wir erstellen Ihnen gerne ein individuelles Angebot, das genau auf Ihre Anforderungen zugeschnitten ist.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="relative flex-1">
                   <Link href="/kontakt?package=individuell">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all hover:scale-105 hover:shadow-xl"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all hover:scale-105 hover:shadow-lg border-0"
                     >
                       Individuelle Anfrage stellen
                     </Button>
@@ -186,8 +170,8 @@ export default function PricingPageClient() {
             </div>
 
             <div className="mt-24">
-              <h2 className="text-3xl font-bold tracking-tight text-center text-balance mb-12">
-                <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold tracking-tight text-center text-balance mb-12 text-gray-900">
+                <span style={{ color: 'lab(37 -0.11 -6.13)' }}>
                   Zusatzpakete
                 </span>
               </h2>
@@ -196,41 +180,50 @@ export default function PricingPageClient() {
                   {
                     name: "Support & Wartung",
                     price: "ab 40€/Monat",
-                    gradient: "from-blue-500 to-cyan-500",
+                    features: ["Regelmäßige Updates", "Sicherheits-Backups", "Technischer Support"],
                   },
                   {
                     name: "Domain & Hosting Setup",
                     price: "ab 20€/Monat",
-                    gradient: "from-cyan-500 to-teal-400",
+                    features: ["Domain Registration", "Hosting-Verwaltung", "SSL-Zertifikat"],
                   },
                   {
                     name: "Content Migration",
                     price: "ab 149€",
-                    gradient: "from-teal-400 to-emerald-500",
+                    features: ["Datenübertragung", "SEO-Bewahrung", "Fehlerprüfung"],
                   },
                   {
                     name: "Notfall-Support",
                     price: "ab 70€/Stunde",
-                    gradient: "from-emerald-500 to-green-500",
+                    features: ["Schnelle Reaktion", "Bug Fixes", "Performance-Optimierung"],
                   },
                 ].map((addon, index) => (
                   <Card
                     key={addon.name}
-                    className="group relative overflow-hidden border-2 transition-all hover:shadow-2xl hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                    className="group relative overflow-visible border border-gray-200 transition-all hover:shadow-lg hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 bg-white"
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
-                    <CardHeader className="relative">
-                      <CardTitle className="text-lg">{addon.name}</CardTitle>
-                      <div className="mt-4">
-                        <span className={`text-2xl font-bold bg-gradient-to-r ${addon.gradient} bg-clip-text text-transparent`}>
-                          {addon.price}
-                        </span>
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-700">
+                        <Rocket className="h-3 w-3" />
+                        <span className="text-xs">{addon.price}</span>
                       </div>
+                    </div>
+                    <CardHeader className="relative">
+                      <CardTitle className="text-lg text-gray-900">{addon.name}</CardTitle>
+                      <ul className="mt-4 space-y-2">
+                        {addon.features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-2 text-xs font-light text-gray-600">
+                            <span className="mt-1 h-1 w-1 flex-shrink-0 rounded-full bg-blue-600" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
                     </CardHeader>
                     <CardFooter className="relative mt-auto">
                       <Link href="/kontakt" className="w-full">
                         <Button
-                          className="w-full transition-all hover:scale-105 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary"
+                          className="w-full transition-all hover:scale-105 bg-white text-gray-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white border border-gray-300 hover:border-transparent"
                           variant="default"
                         >
                           Anfragen
@@ -240,20 +233,18 @@ export default function PricingPageClient() {
                   </Card>
                 ))}
               </div>
-              <p className="mt-8 text-center text-sm text-muted-foreground font-light pt-10">
-                Die Preise der Zusatzpakete werden basierend auf dem genauen Umfang und der benötigten Leistung kalkuliert. 
-                Individuelle Anforderungen können zu abweichenden Preisen führen. Für eine genaue Kostenschätzung kontaktieren Sie uns.
+              <p className="mt-8 text-center text-sm text-gray-600 font-light pt-10">
+                Die Preise der Zusatzpakete werden basierend auf dem genauen Umfang und der benötigten Leistung kalkuliert. Individuelle Anforderungen können zu abweichenden Preisen führen. Für eine genaue Kostenschätzung kontaktieren Sie uns.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden px-6 py-24 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" />
+        <section className="relative overflow-hidden px-6 py-24 lg:px-8 bg-gray-50">
           <div className="relative mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center text-balance">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center text-balance">
               Häufig gestellte{" "}
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
+              <span style={{ color: 'lab(37 -0.11 -6.13)' }}>
                 Fragen
               </span>
             </h2>
@@ -278,14 +269,14 @@ export default function PricingPageClient() {
               ].map((faq, index) => (
                 <Card
                   key={faq.q}
-                  className="border-2 transition-all hover:shadow-lg hover:scale-[1.02] animate-in fade-in slide-in-from-bottom-4 duration-500"
+                  className="border border-gray-200 transition-all hover:shadow-lg hover:scale-[1.02] animate-in fade-in slide-in-from-bottom-4 duration-500 bg-white"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardHeader>
-                    <h3 className="text-lg font-semibold text-foreground">{faq.q}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">{faq.q}</h3>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                    <p className="text-gray-600 leading-relaxed">{faq.a}</p>
                   </CardContent>
                 </Card>
               ))}

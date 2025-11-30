@@ -10,9 +10,9 @@ export function Header() {
 
   const navigation = [
     { name: "Start", href: "/" },
-    { name: "Über uns", href: "/uber-uns" },
     { name: "Leistungen", href: "/leistungen" },
     { name: "Preise", href: "/preise" },
+    { name: "Über uns", href: "/uber-uns" },
     { name: "Referenzen", href: "/referenzen" },
     { name: "Kontakt", href: "/kontakt" },
   ]
@@ -57,9 +57,9 @@ export function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button
             asChild
-            className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all hover:scale-105 hover:shadow-lg"
+            className="bg-white hover:bg-white text-foreground border-2 bg-clip-border transition-all hover:scale-110 hover:shadow-xl group"
           >
-            <Link href="/kontakt">Kostenlose Beratung</Link>
+            <Link href="/kontakt">Kostenloses Erstgespräch</Link>
           </Button>
         </div>
       </nav>

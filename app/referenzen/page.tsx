@@ -72,7 +72,7 @@ export default function ReferencesPage() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-8">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient" />
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -83,11 +83,9 @@ export default function ReferencesPage() {
           </div>
           <div className="relative mx-auto max-w-4xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-balance">
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-                Unsere Referenzen
-              </span>
+              <span style={{ color: 'lab(37 -0.11 -6.13)' }}>Unsere Referenzen</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
               Ein Auszug aus erfolgreich umgesetzten Projekten für zufriedene Kunden in ganz Österreich.
             </p>
           </div>
