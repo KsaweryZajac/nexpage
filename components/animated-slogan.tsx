@@ -22,7 +22,7 @@ export function AnimatedSlogan() {
   }, [])
 
   return (
-    <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl text-balance mb-2">
+    <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-6xl text-balance mb-2">
       <span className="text-foreground">
   Webdesign, das
 </span>

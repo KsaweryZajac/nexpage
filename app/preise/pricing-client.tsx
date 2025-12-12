@@ -69,7 +69,7 @@ export default function PricingPageClient() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-8 bg-white">
+        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-16 2xl:px-32 bg-white">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute -top-24 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl animate-float" />
             <div
@@ -87,7 +87,7 @@ export default function PricingPageClient() {
           </div>
         </section>
 
-        <section className="px-6 py-24 lg:px-8 bg-white">
+        <section className="px-6 py-24 lg:px-16 2xl:px-32 bg-white">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-3">
               {packages.map((pkg, index) => (
@@ -240,7 +240,7 @@ export default function PricingPageClient() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden px-6 py-24 lg:px-8 bg-gray-50">
+        <section className="relative overflow-hidden px-6 py-24 lg:px-16 2xl:px-32 bg-gray-50">
           <div className="relative mx-auto max-w-4xl">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center text-balance">
               Häufig gestellte{" "}

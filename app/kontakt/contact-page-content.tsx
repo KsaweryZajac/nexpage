@@ -128,7 +128,7 @@ export default function ContactPageContent() {
     <>
       <Header />
       <main>
-        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-8">
+        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-16 2xl:px-32">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient" />
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute -top-24 left-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -148,10 +148,10 @@ export default function ContactPageContent() {
           </div>
         </section>
 
-        <section className="px-6 py-24 lg:px-8">
+        <section className="px-6 py-24 lg:px-16 2xl:px-32">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-12 lg:grid-cols-2">
-              <div className="animate-in fade-in slide-in-from-left duration-1000">
+              <div className="fade-in">
                 <h2 className="text-2xl font-bold text-foreground">Kontaktformular</h2>
                 <p className="mt-2 text-muted-foreground leading-relaxed">
                   Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
@@ -358,7 +358,7 @@ export default function ContactPageContent() {
                 </form>
               </div>
 
-              <div className="space-y-6 animate-in fade-in slide-in-from-right duration-1000">
+              <div className="space-y-6 fade-in">
                 <div>
                   <h2 className="text-2xl font-bold text-foreground">Direktkontakt</h2>
                   <p className="mt-2 text-muted-foreground leading-relaxed">Sie können uns auch direkt erreichen:</p>

@@ -122,6 +122,31 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Apply consistent hover effects to all buttons without overriding their individual styles */
+  button,
+  a[role="button"],
+  [role="button"] {
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  }
+  button:hover,
+  a[role="button"]:hover,
+  [role="button"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Responsive typography: scale root font-size on small viewports
+   so Tailwind `text-*` sizes shrink automatically before text hits the edges */
+html {
+  /* Increased root font-size so rem-based Tailwind text sizes appear larger site-wide */
+  font-size: clamp(15px, calc(14px + 1vw), 18px);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent words from overflowing containers on very small screens */
+body, p, h1, h2, h3, h4, h5, h6, a, li {
+  overflow-wrap: anywhere;
 }
 
 @keyframes float {
@@ -167,4 +192,60 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Home page: increase typography on small screens so headings/text are more readable on mobile */
+@media (max-width: 640px) {
+  .home-page h1 {
+    /* Larger site title on mobile */
+    font-size: clamp(2.2rem, 9.5vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .home-page h2 {
+    font-size: clamp(1.25rem, 6vw, 1.9rem);
+    line-height: 1.08;
+  }
+  .home-page h3 {
+    font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+  }
+  .home-page p,
+  .home-page a,
+  .home-page li,
+  .home-page button {
+    font-size: clamp(1rem, 4vw, 1.05rem);
+  }
+  /* Ensure buttons don't overflow the viewport */
+  .home-page button {
+    white-space: normal;
+  }
+  /* Make buttons taller but not full-width on mobile */
+  .home-page button,
+  .home-page a[class*="bg-gradient-to-r"],
+  .home-page a[role="button"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.1rem;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 0.6rem;
+    width: auto !important;
+    max-width: 18rem;
+    align-self: center !important;
+  }
+  /* If buttons are placed inside a vertical flex, prevent them stretching full width */
+  .home-page .flex.flex-col button,
+  .home-page .flex.flex-col a,
+  .home-page .flex-col button,
+  .home-page .flex-col a {
+    width: auto !important;
+    align-self: center !important;
+  }
+
+  /* Increase inner content spacing on mobile, but not the section backgrounds */
+  .home-page section > div {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
 }
