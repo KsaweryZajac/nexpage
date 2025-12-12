@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CookieBanner } from "@/components/cookie-banner"
+import { PageHeader } from "@/components/page-header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check, Sparkles, Rocket } from "lucide-react"
@@ -68,40 +69,26 @@ export default function PricingPageClient() {
   return (
     <>
       <Header />
+      <PageHeader 
+        title="Preise" 
+        description="Wählen Sie das Paket, das am besten zu Ihren Anforderungen passt. Alle Preise sind Fixpreise ohne versteckte Kosten."
+      />
       <main>
-        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-16 2xl:px-32 bg-white">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-24 left-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl animate-float" />
-            <div
-              className="absolute -bottom-24 right-1/4 w-96 h-96 bg-purple-50 rounded-full blur-3xl animate-float"
-              style={{ animationDelay: "1.5s" }}
-            />
-          </div>
-          <div className="relative mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-balance">
-              <span style={{ color: 'lab(37 -0.11 -6.13)' }}>Transparente Preise</span>
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600 text-pretty">
-              Wählen Sie das Paket, das am besten zu Ihren Anforderungen passt. Alle Preise sind Fixpreise ohne versteckte Kosten.
-            </p>
-          </div>
-        </section>
-
-        <section className="px-6 py-24 lg:px-16 2xl:px-32 bg-white">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-3">
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {packages.map((pkg, index) => (
                 <Card
                   key={pkg.name}
-                  className={`group relative overflow-visible transition-all hover:shadow-xl hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 ${
+                  className={`group relative overflow-visible transition-all duration-300 hover:shadow-lg hover:-translate-y-1 opacity-0 animate-fade-in ${
                     pkg.highlighted ? "border-2 border-blue-300 shadow-lg" : "border border-gray-200"
                   }`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="absolute -top-3 -right-3 z-10">
-                    <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-700">
+                    <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                       <Rocket className="h-3 w-3" />
-                      <span className="text-xs">{pkg.price}</span>
+                      <span>{pkg.price}</span>
                     </div>
                   </div>
                   <CardHeader className="relative">
@@ -129,9 +116,9 @@ export default function PricingPageClient() {
                   <CardFooter className="relative mt-auto">
                     <Link href={`/kontakt?package=${pkg.packageId}`} className="w-full">
                       <Button
-                        className={`w-full transition-all hover:scale-105 ${
+                        className={`w-full transition-all duration-300 hover:shadow-lg ${
                           pkg.highlighted
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-700 hover:to-blue-700 text-white border-0"
+                            ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 text-white border-0"
                             : "border border-gray-300 text-gray-900 hover:bg-gray-50"
                         }`}
                         variant={pkg.highlighted ? "default" : "outline"}
@@ -160,7 +147,7 @@ export default function PricingPageClient() {
                   <Link href="/kontakt?package=individuell">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all hover:scale-105 hover:shadow-lg border-0"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 text-white transition-all duration-300 hover:shadow-lg border-0"
                     >
                       Individuelle Anfrage stellen
                     </Button>
@@ -175,7 +162,7 @@ export default function PricingPageClient() {
                   Zusatzpakete
                 </span>
               </h2>
-              <div className="grid gap-8 lg:grid-cols-4">
+              <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   {
                     name: "Support & Wartung",
@@ -200,13 +187,13 @@ export default function PricingPageClient() {
                 ].map((addon, index) => (
                   <Card
                     key={addon.name}
-                    className="group relative overflow-visible border border-gray-200 transition-all hover:shadow-lg hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 bg-white"
+                    className="group relative overflow-visible border border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 opacity-0 animate-fade-in bg-white"
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
                     <div className="absolute -top-3 -right-3 z-10">
-                      <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-700">
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
                         <Rocket className="h-3 w-3" />
-                        <span className="text-xs">{addon.price}</span>
+                        <span>{addon.price}</span>
                       </div>
                     </div>
                     <CardHeader className="relative">
@@ -223,8 +210,8 @@ export default function PricingPageClient() {
                     <CardFooter className="relative mt-auto">
                       <Link href="/kontakt" className="w-full">
                         <Button
-                          className="w-full transition-all hover:scale-105 bg-white text-gray-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white border border-gray-300 hover:border-transparent"
-                          variant="default"
+                          className="w-full transition-all duration-300 hover:shadow-md bg-white text-gray-900 hover:bg-blue-50 border border-gray-300"
+                          variant="outline"
                         >
                           Anfragen
                         </Button>
@@ -233,16 +220,16 @@ export default function PricingPageClient() {
                   </Card>
                 ))}
               </div>
-              <p className="mt-8 text-center text-sm text-gray-600 font-light pt-10">
+              <p className="mt-8 text-center text-sm text-gray-600 font-light">
                 Die Preise der Zusatzpakete werden basierend auf dem genauen Umfang und der benötigten Leistung kalkuliert. Individuelle Anforderungen können zu abweichenden Preisen führen. Für eine genaue Kostenschätzung kontaktieren Sie uns.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden px-6 py-24 lg:px-16 2xl:px-32 bg-gray-50">
-          <div className="relative mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center text-balance">
+        <section className="relative overflow-hidden py-16 sm:py-24 bg-gray-50">
+          <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 text-center text-balance">
               Häufig gestellte{" "}
               <span style={{ color: 'lab(37 -0.11 -6.13)' }}>
                 Fragen
@@ -269,7 +256,7 @@ export default function PricingPageClient() {
               ].map((faq, index) => (
                 <Card
                   key={faq.q}
-                  className="border border-gray-200 transition-all hover:shadow-lg hover:scale-[1.02] animate-in fade-in slide-in-from-bottom-4 duration-500 bg-white"
+                  className="border border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 opacity-0 animate-fade-in bg-white"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardHeader>

@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CookieBanner } from "@/components/cookie-banner"
+import { PageHeader } from "@/components/page-header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
@@ -24,7 +25,7 @@ export default function ServicesPage() {
         "User Experience (UX) Optimierung",
         "Responsive Design",
       ],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-blue-600 to-blue-500",
     },
     {
       icon: Code,
@@ -32,7 +33,7 @@ export default function ServicesPage() {
       description:
         "Flexible WordPress-Lösungen für schnelle und kostengünstige Websites. Perfekt für Unternehmenswebsites, Blogs und kleinere Online-Shops.",
       features: ["Custom Theme Entwicklung", "Plugin-Integration", "Wartung und Updates", "Performance-Optimierung"],
-      gradient: "from-cyan-500 to-teal-400",
+      gradient: "from-purple-600 to-purple-500",
     },
     {
       icon: Code,
@@ -40,7 +41,7 @@ export default function ServicesPage() {
       description:
         "Maßgeschneiderte Webanwendungen mit modernsten Technologien. Für komplexe Anforderungen und maximale Performance.",
       features: ["React / Next.js", "Node.js Backend", "RESTful APIs", "Skalierbare Architektur"],
-      gradient: "from-teal-400 to-emerald-500",
+      gradient: "from-blue-500 to-purple-500",
     },
     {
       icon: Smartphone,
@@ -53,7 +54,7 @@ export default function ServicesPage() {
         "Flexible Layouts",
         "Cross-Browser Kompatibilität",
       ],
-      gradient: "from-emerald-500 to-blue-500",
+      gradient: "from-purple-500 to-blue-500",
     },
     {
       icon: Search,
@@ -68,7 +69,7 @@ export default function ServicesPage() {
       description:
         "Professionelle Online-Shop Lösungen für Ihr Geschäft. Von einfachen Produktpräsentationen bis zu komplexen Shop-Systemen.",
       features: ["WooCommerce", "Zahlungsintegration", "Lagerverwaltung", "Versandoptionen"],
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-blue-600 to-purple-600",
     },
     {
       icon: Database,
@@ -76,7 +77,7 @@ export default function ServicesPage() {
       description:
         "Einfache Verwaltung Ihrer Inhalte – auch ohne technische Kenntnisse. Intuitive CMS-Lösungen für maximale Flexibilität.",
       features: ["Benutzerfreundliche Oberflächen", "Mehrsprachigkeit", "Medien-Verwaltung", "Workflow-Management"],
-      gradient: "from-pink-500 to-rose-500",
+      gradient: "from-purple-600 to-blue-600",
     },
 
     {
@@ -85,58 +86,43 @@ export default function ServicesPage() {
       description:
         "Langfristiger Support für Ihre Website. Wir kümmern uns um Updates, Backups und technische Probleme.",
       features: ["Regelmäßige Updates", "Sicherheits-Backups", "Performance-Monitoring", "Technischer Support"],
-      gradient: "from-orange-500 to-blue-500",
+      gradient: "from-purple-500 to-blue-600",
     },
   ]
 
   return (
     <>
       <Header />
+      <PageHeader 
+        title="Unsere Leistungen" 
+        description="Von Design bis Entwicklung – alles aus einer Hand für Ihren digitalen Erfolg."
+      />
       <main>
-        <section className="relative overflow-hidden px-6 py-12 sm:py-20 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient" />
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
-            <div
-              className="absolute bottom-1/4 -right-24 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
-              style={{ animationDelay: "1s" }}
-            />
-          </div>
-          <div className="relative mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-balance">
-              <span style={{ color: 'lab(37 -0.11 -6.13)' }}>Unsere Leistungen</span>
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-              Von Design bis Entwicklung – alles aus einer Hand für Ihren digitalen Erfolg.
-            </p>
-          </div>
-        </section>
-
-        <section className="px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service, index) => (
                 <Card
                   key={service.title}
-                  className="group flex flex-col border-2 transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-4 duration-700"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  className="group flex flex-col border border-gray-200 bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 opacity-0 animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <CardHeader>
                     <div
-                      className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform`}
+                      className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}
                     >
                       <service.icon className="h-7 w-7 text-white" />
                     </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                    <CardTitle className="text-xl group-hover:text-blue-600 transition-colors text-gray-900">
                       {service.title}
                     </CardTitle>
-                    <CardDescription className="mt-2 leading-relaxed">{service.description}</CardDescription>
+                    <CardDescription className="mt-2 leading-relaxed text-gray-600">{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-1">
                     <ul className="space-y-2">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-primary to-secondary" />
+                        <li key={feature} className="flex items-start gap-2 text-sm text-gray-600">
+                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600" />
                           {feature}
                         </li>
                       ))}
@@ -148,34 +134,33 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden px-6 py-24 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/30" />
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/3 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <section className="relative overflow-hidden py-24 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/3 w-64 h-64 bg-blue-100 rounded-full blur-3xl animate-float opacity-50" />
           </div>
-          <div className="relative mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-balance">
+          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 text-balance">
               Interessiert an unseren Leistungen?
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty">
+            <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-600 text-pretty">
               Werfen Sie einen Blick auf unsere Preispakete oder kontaktieren Sie uns für ein individuelles Angebot.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all hover:scale-105 hover:shadow-xl group"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 text-white transition-all duration-300 hover:shadow-lg group border-0"
               >
                 <Link href="/preise">
                   Preise ansehen
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2 hover:border-primary hover:bg-primary/5 transition-all hover:scale-105 bg-transparent"
+                className="border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 transition-all duration-300 hover:shadow-md"
               >
                 <Link href="/kontakt">Beratung anfragen</Link>
               </Button>
