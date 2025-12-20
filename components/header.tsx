@@ -25,7 +25,7 @@ export function Header() {
             <img
               src="/logo.png"
               alt="NexPage.at"
-              className="h-8 sm:h-9 w-auto object-cover transition-transform duration-300 group-hover:scale-105"
+              className="h-8 sm:h-9 w-10 object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
         </div>
